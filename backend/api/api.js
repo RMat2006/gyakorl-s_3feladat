@@ -26,6 +26,26 @@ router.get('/test', (request, response) => {
     });
 });
 
+
+
+const tomb = [];
+router.post('/names', (request, response) => {
+
+    const data = request.body;
+    tomb.push(data)
+    console.log(tomb)
+    response.status(200).json({
+        message: 'Ez a végpont működik.'
+    });
+});
+
+router.get('/names', (request, response) => {
+    response.status(200).json({
+        message: 'Ez a végpont működik.',
+        lista: tomb
+    });
+});
+
 //?GET /api/testsql
 router.get('/testsql', async (request, response) => {
     try {
